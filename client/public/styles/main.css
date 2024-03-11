@@ -1,0 +1,380 @@
+html{
+    height:100%;
+}
+
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: hsla(296, 100%, 6%, 1);
+    display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+}
+/* Header Styles */
+.navbar>.container{
+    background-color: #080808;
+}
+
+.navbar-custom {
+    background-color:  #080808;
+}
+
+/* Style for Navbar Links */
+.navbar-custom .navbar-nav .nav-link {
+    background-color: #080808;
+    color: #ffffff; 
+    font-size: 14px; 
+    margin-left: 10px; 
+}
+
+/* Style for Active Navbar Link */
+.navbar-custom .navbar-nav .nav-item.active .nav-link {
+    font-weight: bold; 
+}
+
+/* Margin for Navbar Brand */
+.navbar-custom .navbar-brand {
+    margin-left: 10px;
+    font-size: 24px; 
+}
+
+/* Navbar Padding */
+.navbar-custom .navbar-nav {
+    padding-right: 15px;
+}
+/* Move Navbar to the Right */
+.navbar-custom .ms-auto {
+    margin-left: auto;
+}
+
+img.logo{
+    height: 25px;
+    width: auto;
+    margin-left: 35px;
+}
+
+/* Main Content Styles */
+main {
+    position: relative;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    height: 100vh;
+    /* Adjust height as needed */
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content{
+    margin-top:30vh;
+}
+
+.heading-content h1 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.heading-content p {
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    animation: fade 10s infinite;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+}
+
+.ftr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    color: white;
+}
+
+.ftr h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.ftr p {
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.feature-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.feature-image {
+    flex: 1;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.feature-design {
+    background-color: #4CAF50;  
+}
+
+.feature-domain {
+    background-color: #2196F3;
+}
+
+.feature-money {
+    background-color: #f44336;
+}
+
+.feature-audience {
+    background-color: #9C27B0;
+}
+
+.feature-memories {
+    background-color: #FFC107;
+}
+
+.feature-join {
+    background-color: #607D8B;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/blog.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Blog Post Styles */
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+li.post {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease-in-out;
+}
+
+li.post:hover {
+    transform: scale(1.02);
+}
+
+div.container.my-5{
+    background-image: url('/images/blog.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    border: 1px none;
+    padding: 5px;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+
+
+h2{
+
+    color:#ffffff;
+    word-wrap: break-word;
+    display: flex;
+        justify-content: center;
+}
+
+h3 {
+    color: rgb(36, 1, 46);
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+p {
+    color: #666;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#clr{
+    color: rgb(36, 1, 46);
+}
+
+#clr:hover {
+    color: rgb(121, 0, 155);
+}
+
+a:hover {
+    text-decoration:solid;
+    color: rgb(36, 1, 46);
+}
+
+/* Create Post Link Styles */
+.create-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.create-link a {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.create-link a:hover {
+    background-color: #0056b3;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left:40%;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+span.mb-3.mb-md-0{
+    --bs-text-opacity: 1;
+    color:white;
+}
+
+label{
+    color:white;
+}
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    height:200px;
+}
+
+footer {
+    height: 100px;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+.heading-content p {
+        font-size: 1rem;
+        color: #ffffff;
+    }
+        .heading-content h1{
+            font-size: 3rem;
+        }
+
+.hero{
+    height:80vh;
+}
+form button{
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+}

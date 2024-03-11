@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>TheBlogApp</title>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<div class="main">
+    <div class="hero">
+        <div class="background-container" id="background">
+            <div class="background-image" style="background-image: url('/images/homeblog.png');"></div>
+            <div class="background-image" style="background-image: url('/images/fashionblog.png');"></div>
+            <div class="background-image" style="background-image: url('/images/travelblog.png');"></div>
+            <div class="background-image" style="background-image: url('/images/foodblog.png');"></div>
+            <div class="background-image" style="background-image: url('/images/gymblog.png');"></div>
+
+            <div class="hero-content">
+                <div class="heading-content" id="heading1">
+                    <h1>Welcome to The BlogApp</h1>
+                    <p>Create your own blogs here,share your thoughts and experiences to the world</p>
+                </div>
+                <div class="heading-content" id="heading2">
+                    <h1>Your Fashion Blog</h1>
+                    <p>Share your ideas and fashion tips to the world.</p>
+                </div>
+                <div class="heading-content" id="heading3">
+                    <h1>Your Travel Blog</h1>
+                    <p>Share your travels and experiences to the world.</p>
+                </div>
+                <div class="heading-content" id="heading4">
+                    <h1>Your Gym Blog</h1>
+                    <p>Share your tips on fitness and personal experiences to the world.</p>
+                </div>
+                <div class="heading-content" id="heading5">
+                    <h1>Your Food Blog</h1>
+                    <p>Share your recipes and fooding experiences to th world.</p>
+                </div>
+            </div>
+
+            <div class="d-inline-flex gap-2 mb-5">
+                <a class="create-link" href="/create" id="crt">
+                    <button class="d-inline-flex align-items-center btn btn-dark btn-lg px-4 rounded-pill" type="button" style="background-color: black; outline: none;">Create new post</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ftr feature-design">
+        <div class="feature-content">
+           <h1>Customize Your Blog</h1>
+        <p>Create a stunning blog that reflects your unique style. Explore our wide range of customizable templates and unleash your creativity.</p>
+        </div>
+        <div class="ftr feature-image"></div>
+    </div>
+
+    <div class="ftr feature-domain">
+        <div class="feature-content">
+           <h1>Claim Your Space</h1>
+        <p>Giving your blog a home has never been easier. Add a blog that resonates with your audience and establishes your online presence.</p>
+        </div>
+        <div class="feature-image"></div>
+    </div>
+
+    <div class="ftr feature-money">
+        <div class="feature-content">
+            <h1>Monetize Your Passion</h1>
+        <p>Turn your passion into profit with Google AdSense. Effortlessly monetize your content and earn revenue while doing what you love.</p>
+        </div>
+        <div class="feature-image"></div>
+    </div>
+
+    <div class="ftr feature-audience">
+        <div class="feature-content">
+            <h1>Connect with Your Readers</h1>
+        <p>Understand your audience better with powerful analytics tools. Gain insights into your readers' preferences and tailor your content to their interests.</p>
+        </div>
+        <div class="feature-image"></div>
+    </div>
+
+    <div class="ftr feature-memories">
+        <div class="feature-content">
+            <h1>Preserve Your Moments</h1>
+        <p>Document your life's journey with The BlogApp. Safely store and share your memories, from everyday adventures to milestone moments.</p>
+        </div>
+        <div class="feature-image"></div>
+    </div>
+
+    <div class="ftr feature-join">
+        <div class="feature-content">
+           <h1>Join Our Community</h1>
+        <p>Discover the power of sharing on The BlogApp. Join millions of creators worldwide and be part of a vibrant community dedicated to expressing their passions.</p>
+        </div>
+        <div class="feature-image"></div>
+    </div>
+
+</div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const backgroundImages = [
+            '/images/homeblog.png',
+            '/images/fashionblog.png',
+            '/images/travelblog.png',
+            '/images/gymblog.png',
+            '/images/foodblog.png'
+        ];
+        let index = 0;
+
+        function changeBackgroundImage() {
+            const background = document.getElementById("background");
+            background.style.backgroundImage = `url(${backgroundImages[index]})`;
+
+            // Hide all heading contents initially
+            const headingContents = document.querySelectorAll('.heading-content');
+            headingContents.forEach(headingContent => headingContent.style.display = 'none');
+
+            // Show the corresponding heading content based on the active background image
+            const currentHeadingContent = document.getElementById(`heading${index + 1}`);
+            currentHeadingContent.style.display = 'block';
+
+            index = (index + 1) % backgroundImages.length;
+        }
+
+        setInterval(changeBackgroundImage, 5000); // Change image every 5 seconds
+        changeBackgroundImage(); // Initially set the background image and heading content
+    });
+</script>
+
+<footer>
+<%- include('partials/footer') %>
+</footer>
+</body>
+</html>

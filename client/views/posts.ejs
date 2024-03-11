@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>TheBlogApp</title>
+</head>
+<body>
+<%- include('partials/header') %>
+
+
+<main>
+    <div class="overlay"></div>
+    <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+            <h2 class="text-body-emphasis" style=" margin-bottom: 25px;">All Posts</h2>
+            <ul class="post-list">
+                <% posts.forEach((post, index) => { %>
+                <li class="post">
+                    <h3><%= post.title %></h3>
+                    <div class="post-content">
+                        <%- post.content %>
+                    </div>
+                    <p>Author: <%= post.author %></p> 
+                     <a href="/edit/<%= post.id %>" id="clr">Edit</a> | 
+                    <a href="/delete/<%= post.id %>" id="clr">Delete</a>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+<%- include('partials/footer') %>
+</footer>
+</body>
+</html>
