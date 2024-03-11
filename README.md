@@ -67,4 +67,5 @@ To deploy the application:
 5. Submit a pull request to the main repository's `main` branch.
 
 ## Video or Image 📹🖼️
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+1.https://github.com/Fardeeeeen/Blog-App/blob/main/TheBlogApp%20-%20Google%20Chrome%202024-03-11%2016-41-54%20.mp4
+2.https://github.com/Fardeeeeen/Blog-App/blob/main/TheBlogApp%20-%20Google%20Chrome%202024-03-11%2016-48-03.mp4
