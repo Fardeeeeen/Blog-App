@@ -67,5 +67,13 @@ To deploy the application:
 5. Submit a pull request to the main repository's `main` branch.
 
 ## Video or Image 📹🖼️
+Images:
+<img src = " https://github.com/Fardeeeeen/Blog-App/blob/main/blog(1).png" alt = "pages" />
+<img src = " https://github.com/Fardeeeeen/Blog-App/blob/main/blog(2).png" alt = "pages" />
+<img src = " https://github.com/Fardeeeeen/Blog-App/blob/main/blog(3).png" alt = "pages" />
+<img src = "https://github.com/Fardeeeeen/Blog-App/blob/main/blog%20(4).png " alt = "pages" />
+<img src = " https://github.com/Fardeeeeen/Blog-App/blob/main/blog(5).png" alt = "pages" />
+
+Videos:
 1.https://github.com/Fardeeeeen/Blog-App/blob/main/TheBlogApp%20-%20Google%20Chrome%202024-03-11%2016-41-54%20.mp4
 2.https://github.com/Fardeeeeen/Blog-App/blob/main/TheBlogApp%20-%20Google%20Chrome%202024-03-11%2016-48-03.mp4
