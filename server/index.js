@@ -13,8 +13,8 @@ const port = 3000;
 const { Pool } = pkg;
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
-const viewsPath = path.join(__dirname, '..', 'Client', 'Views');
-const publicPath = path.join(__dirname, '..', 'Client','public');
+const viewsPath = path.join(__dirname, '..', 'client', 'views');
+const publicPath = path.join(__dirname, '..', 'client','public');
 
 
 const pool = new Pool({
