@@ -1,3 +1,4 @@
+
 html{
     height:100%;
 }
@@ -368,13 +369,12 @@ footer {
         .heading-content h1{
             font-size: 3rem;
         }
-
+    }
+    
 .hero{
     height:80vh;
 }
 form button{
     margin-left: 40%;
     margin-right: 40%;
-}
-
 }
