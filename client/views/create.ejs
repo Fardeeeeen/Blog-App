@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>TheBlogApp</title>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main class="main">
+    <div class="overlay"></div>
+    <h2>Create a New Post</h2>
+    <form action="/create" method="post" id="createPostForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>A
+        <label for="content">Content:</label>
+        <div id="editor"></div>
+        <textarea id="content" name="content" style="display: none;"></textarea>
+        <button type="submit" style="background-color: black; margin-top: 25px;">Create Post</button>
+    </form>
+</main>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            autoParagraph: false,
+            // Enable image upload
+            ckfinder: {
+                uploadUrl: '/upload'
+            },
+            // Allow all content
+            allowedContent: true
+        })
+        .then(editor => {
+            editor.model.document.on('change:data', () => {
+                let content = editor.getData();
+                content = content.replace(/<p>/g, '').replace(/<\/p>/g, ''); // Remove <p> tags
+                document.getElementById('content').value = content; // Update the hidden textarea
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<footer>
+<%- include('partials/footer') %>
+</footer>
+</body>
+</html>
