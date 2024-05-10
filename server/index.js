@@ -5,18 +5,34 @@ import dotenv from "dotenv";
 import pkg from 'pg';
 import multer from "multer";
 import path from "path";
-import { fileURLToPath } from 'url'; 
+import { fileURLToPath } from 'url';
+import Sequelize from 'sequelize';
 
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3001;
 const { Pool } = pkg;
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
 const viewsPath = path.join(__dirname, '..', 'client', 'views');
 const publicPath = path.join(__dirname, '..', 'client','public');
 
+let sequelize;
+
+if (process.env.DB_URL) {
+  sequelize = new Sequelize(process.env.DB_URL);
+} else {
+  sequelize = new Sequelize(
+    process.env.PG_DATABASE,
+    process.env.PG_USER,
+    process.env.PG_PASSWORD,
+    {
+      host: process.env.PG_HOST,
+      dialect: 'postgres',
+    },
+  );
+}
 
 const pool = new Pool({
     user: process.env.PG_USER,
@@ -25,7 +41,6 @@ const pool = new Pool({
     password: process.env.PG_PASSWORD,
     port: process.env.PG_PORT,
 });
-
 
 // Multer configuration for handling file uploads
 const storage = multer.diskStorage({
