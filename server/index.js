@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from 'url';
+import pkg from 'pg';
 import Sequelize from 'sequelize';
 
 dotenv.config();
