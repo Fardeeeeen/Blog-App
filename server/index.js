@@ -2,7 +2,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import pkg from 'pg';
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from 'url';
@@ -40,6 +39,26 @@ const pool = new Pool({
     database: process.env.PG_DATABASE,
     password: process.env.PG_PASSWORD,
     port: process.env.PG_PORT,
+});
+
+// Post model
+const Post = sequelize.define('post', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  author: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  content: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
+  imagePath: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  }
 });
 
 // Multer configuration for handling file uploads
