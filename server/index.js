@@ -23,28 +23,12 @@ let sequelize;
 if (process.env.DB_URL) {
   sequelize = new Sequelize(process.env.DB_URL, {
     dialect: 'postgres',
-    ssl: true,
+    ssl: true, // Enable SSL if required by Render
   });
 } else {
-  sequelize = new Sequelize({
-    database: process.env.PG_DATABASE,
-    username: process.env.PG_USER,
-    password: process.env.PG_PASSWORD,
-    host: process.env.PG_HOST,
-    port: process.env.PG_PORT,
-    dialect: 'postgres',
-    ssl: true,
-  });
+  console.error("DB_URL is not available. Please check your environment configuration.");
+  process.exit(1); // Exit the application if DB_URL is not available
 }
-
-const pool = new Pool({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
-  ssl: true,
-});
 
 // Post model
 const Post = sequelize.define('post', {
