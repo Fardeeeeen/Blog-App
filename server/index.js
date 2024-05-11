@@ -1,4 +1,3 @@
-
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
@@ -59,7 +58,7 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname)); 
   }
 });
-const upload = multer({ dest: 'public/uploads/' });
+const upload = multer({ storage: storage });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
@@ -93,7 +92,7 @@ app.get('/alternative', (req, res) => {
 // Retrieve all posts
 app.get("/posts", async (req, res) => {
     try {
-        const { rows: posts } = await pool.query('SELECT * FROM posts');
+        const posts = await Post.findAll();
         res.render("posts.ejs", { currentPage: 'posts', posts });
     } catch (error) {
         console.error("Error retrieving posts:", error);
@@ -107,7 +106,7 @@ app.post('/create', upload.single('image'), async (req, res) => {
     try {
         const { title, author, content } = req.body;
         const imagePath = req.file ? '/uploads/' + req.file.filename : null;
-        await pool.query('INSERT INTO posts (title, author, content, image_path) VALUES ($1, $2, $3, $4)', [title, author, content, imagePath]);
+        await Post.create({ title, author, content, imagePath });
         res.redirect('/posts');
     } catch (error) {
         console.error("Error creating post:", error);
@@ -131,11 +130,10 @@ app.post('/upload', upload.single('upload'), (req, res) => {
 app.get('/edit/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const { rows: posts } = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
-        if (posts.length === 0) {
+        const post = await Post.findByPk(id);
+        if (!post) {
             res.redirect('/posts');
         } else {
-            const post = posts[0];
             res.render('edit', { id, post });
         }
     } catch (error) {
@@ -149,7 +147,7 @@ app.post('/edit/:id', upload.single('image'), async (req, res) => {
         const id = req.params.id;
         const { title, author, content } = req.body;
         const imagePath = req.file ? '/uploads/' + req.file.filename : null;
-        await pool.query('UPDATE posts SET title = $1, author = $2, content = $3, image_path = $4 WHERE id = $5', [title, author, content, imagePath, id]);
+        await Post.update({ title, author, content, imagePath }, { where: { id } });
         res.redirect('/posts');
     } catch (error) {
         console.error("Error updating post:", error);
@@ -161,7 +159,7 @@ app.post('/edit/:id', upload.single('image'), async (req, res) => {
 app.get('/delete/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        await pool.query('DELETE FROM posts WHERE id = $1', [id]);
+        await Post.destroy({ where: { id } });
         res.redirect('/posts');
     } catch (error) {
         console.error("Error deleting post:", error);
