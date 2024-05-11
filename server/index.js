@@ -49,6 +49,15 @@ const Post = sequelize.define('post', {
   }
 });
 
+// Sync the Sequelize model with the database
+sequelize.sync()
+  .then(() => {
+    console.log('Database synchronized successfully');
+  })
+  .catch(error => {
+    console.error('Error synchronizing database:', error);
+  });
+
 // Multer configuration for handling file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
